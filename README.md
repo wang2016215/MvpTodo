@@ -4,9 +4,11 @@
 
 Contract 作为契约类，能够更清晰的看到在Presenter层和View层中有哪些功能，方便我们以后的维护。
 
-activity ，Fragment 作为V，负责的就是接收数据，更新界面。
+## MVP模式
 
-model M，负责的是对数据的处理和回调，，而且M中没有V的引用，而和P的联系则是通过callback，可以再看下官方给的图。
-
-Presenter 作为P，V向它请求数据，然后P再向M请求数据，通过回调得到数据之后在调用V进行界面的更新。
+| 角色 | 说明 |
+|:------------- |:------------- |
+| Model | 主要做一些数据处理, 网路请求。Presenter 需要通过 Model 层存取、获取数据，Model是封装了数据库 Dao 层或者网络获取数据的角色，或者两种数据获取方式的集合。 |
+| Presenter | 交互中间人，核心逻辑，处理 View 的业务逻辑，沟通 View 和 Model 的桥梁，Presenter 持有的 View、Model 引用都是抽象，它从 Model 层检索数据后返回给 View 层，使得 View 和 Model 没有耦合，也将业务逻辑从 View 层抽取出来，经常会执行耗时操作。 |
+| View | 用户界面，Activity、Fragment 或者某个 View 控件，含有一个 Presenter 成员变量，通常 View 层需要实现一个逻辑接口，将 View 上的操作通过会转交给 Presenter 进行实现，最后 Presenter 调用 View 逻辑接口将结果返回给 View 元素。 |
 
