@@ -13,4 +13,6 @@
 | View | 用户界面，Activity、Fragment 或者某个 View 控件，含有一个 Presenter 成员变量，通常 View 层需要实现一个逻辑接口，将 View 上的操作通过会转交给 Presenter 进行实现，最后 Presenter 调用 View 逻辑接口将结果返回给 View 元素。 |
 |Contract| 契约类定义v和p的接口，能够更清晰的看到在Presenter层和View层中有哪些功能，方便我们以后的维护。|
 
+
+
 ![image](https://github.com/wang2016215/MvpTodo/blob/master/screenshots/20180105103858.png)
