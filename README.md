@@ -17,11 +17,10 @@
 
 ![image](https://github.com/wang2016215/MvpTodo/blob/master/screenshots/20180105103858.png)
 
->## 为什么要用mvp？相比于mvc有哪些优点
+## 为什么要用mvp？相比于mvc有哪些优点
 >1.减少了Activity的职责，简化了Activity中的代码，将复杂的逻辑代码提取到了Presenter中进行处理。与之对应的好处就是，耦合度更低，
 
 >2.Activity 代码变得更加简洁
-
   使用MVP之后，Activity就能瘦身许多了，基本上只有FindView、SetListener以及Init的代码。其他的就是对Presenter的调用，还有对View接口的实现。这种情形下阅读代码就容易多了，而且你只要看Presenter的接口，就能明白这个模块都有哪些业务，很快就能定位到具体代码。Activity变得容易看懂，容易维护，以后要调整业务、删减功能也就变得简单许多。
 
 >3.方便进行单元测试
@@ -29,4 +28,5 @@
 MVP中，由于业务逻辑都在Presenter里，我们完全可以写一个PresenterTest的实现类继承Presenter的接口，现在只要在Activity里把Presenter的创建换成PresenterTest，就能进行单元测试了，测试完再换回来即可。万一发现还得进行测试，那就再换成PresenterTest吧。
 
 >4.避免 Activity 的内存泄露
+
   
