@@ -38,7 +38,7 @@ MVP中，由于业务逻辑都在Presenter里，我们完全可以写一个Prese
   
   采用传统的MVC模式，一大堆异步任务和对UI的操作都放在Activity里面，比如你可能从网络下载一张图片，在下载成功的回调里把图片加载到 Activity 的         ImageView 里面，所以异步任务保留着对Activity的引用。这样一来，即使Activity已经被切换到后台（onDestroy已经执行），这些异步任务仍然保留着对         Activity实例的引用，所以系统就无法回收这个Activity实例了，结果就是Activity Leak。Android的组件中，Activity对象往往是在堆（Java Heap）里占最     多内存的，所以系统会优先回收Activity对象，如果有Activity Leak，APP很容易因为内存不够而OOM。
   
-  *  MVC模式如何避免内存泄漏
+  * MVC模式如何避免内存泄漏
   
    只要在当前的Activity的onDestroy里，分离异步任务对Activity的引用，就能避免 Activity Leak
   
