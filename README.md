@@ -18,17 +18,17 @@
 ![image](https://github.com/wang2016215/MvpTodo/blob/master/screenshots/20180105103858.png)
 
 ## 为什么要用mvp？相比于mvc有哪些优点
-*1.减少了Activity的职责，简化了Activity中的代码，将复杂的逻辑代码提取到了Presenter中进行处理。与之对应的好处就是，耦合度更低，
+>1.减少了Activity的职责，简化了Activity中的代码，将复杂的逻辑代码提取到了Presenter中进行处理。与之对应的好处就是，耦合度更低，
 
-*2.Activity 代码变得更加简洁
+>2.Activity 代码变得更加简洁
   使用MVP之后，Activity就能瘦身许多了，基本上只有FindView、SetListener以及Init的代码。其他的就是对Presenter的调用，还有对View接口的实现。这种情形下阅读代码就容易多了，而且你只要看Presenter的接口，就能明白这个模块都有哪些业务，很快就能定位到具体代码。Activity变得容易看懂，容易维护，以后要调整业务、删减功能也就变得简单许多。
 
-*3.方便进行单元测试
+>3.方便进行单元测试
   一般单元测试都是用来测试某些新加的业务逻辑有没有问题，如果采用传统的代码风格（习惯性上叫做MV模式，少了P），我们可能要先在Activity里写一段测试代码，测试完了再把测试代码删掉换成正式代码，这时如果发现业务有问题又得换回测试代码，咦，测试代码已经删掉了！好吧重新写吧……
 MVP中，由于业务逻辑都在Presenter里，我们完全可以写一个PresenterTest的实现类继承Presenter的接口，现在只要在Activity里把Presenter的创建换成PresenterTest，就能进行单元测试了，测试完再换回来即可。万一发现还得进行测试，那就再换成PresenterTest吧。
 
-*4.避免 Activity 的内存泄露
-  * 发生OOM异常的原因
+>4.避免 Activity 的内存泄露
+  *发生OOM异常的原因
   
     >1.现内存泄露造成APP的内存不够用，而造成内存泄露的两大原因之一就是Activity泄露（Activity Leak）（另一个原因是Bitmap泄露（Bitmap Leak））
     
@@ -36,11 +36,11 @@ MVP中，由于业务逻辑都在Presenter里，我们完全可以写一个Prese
     
     >3.Activity是有生命周期的，用户随时可能切换Activity，当APP的内存不够用的时候，系统会回收处于后台的Activity的资源以避免OOM。
   
-  * MVC产生内存泄漏异常分析
+  *MVC产生内存泄漏异常分析
   
     采用传统的MVC模式，一大堆异步任务和对UI的操作都放在Activity里面，比如你可能从网络下载一张图片，在下载成功的回调里把图片加载到 Activity 的         ImageView 里面，所以异步任务保留着对Activity的引用。这样一来，即使Activity已经被切换到后台（onDestroy已经执行），这些异步任务仍然保留着对         Activity实例的引用，所以系统就无法回收这个Activity实例了，结果就是Activity Leak。Android的组件中，Activity对象往往是在堆（Java Heap）里占最     多内存的，所以系统会优先回收Activity对象，如果有Activity Leak，APP很容易因为内存不够而OOM。
   
-  * MVC模式如何避免内存泄漏
+  *MVC模式如何避免内存泄漏
   
     只要在当前的Activity的onDestroy里，分离异步任务对Activity的引用，就能避免 Activity Leak
   
