@@ -43,4 +43,21 @@ MVP中，由于业务逻辑都在Presenter里，我们完全可以写一个Prese
   
    只要在当前的Activity的onDestroy里，分离异步任务对Activity的引用，就能避免 Activity Leak
   
+  # 包结构
+- activity: Activity, Fragment, etc.
+- base: BaseAcitivity, BasePresenter, etc.
+- bean javaBean
+- config  构建配置类
+- contract: 契约类, 接口定义mainContract
+- http : 网络请求的封装
+- jni: ndk开发
+- model: mainModel
+- mvp: IView, IModel, IPresenter
+- presenter: mainPresenter
+- utils 工具类
+
+
+
+
+  
   
