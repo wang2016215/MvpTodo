@@ -11,11 +11,13 @@ import com.example.administrator.mvptodo.bean.MainIndexBean;
 public class MainContract {
 
     public interface MainView {
+        void showLoading();
         void loginSuccess(MainIndexBean loginBean); // 请求成功，展示数据
         void loginFail(String failMsg);
     }
 
     public interface MainPresenter {
         void index(String url); // 业务逻辑
+
     }
 }

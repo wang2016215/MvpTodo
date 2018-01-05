@@ -25,8 +25,8 @@ public abstract class BaseActivity<P extends OtherPresenter> extends RxAppCompat
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getView());
-        mPresenter = createPresent();
-        initCommonData();
+//        mPresenter = createPresent();
+//        initCommonData();
         initView();
         initListener();
         initData();
@@ -40,6 +40,16 @@ public abstract class BaseActivity<P extends OtherPresenter> extends RxAppCompat
         if (mPresenter != null) {
             mPresenter.attachView(this);
         }
+    }
+
+    protected P getP() {
+        if (mPresenter == null) {
+            mPresenter = createPresent();
+            if (mPresenter != null) {
+               mPresenter.attachView(this);
+            }
+        }
+        return mPresenter;
     }
 
     protected abstract void initView();

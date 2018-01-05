@@ -40,7 +40,7 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
 
     @Override
     protected void initData() {
-        mPresenter.index("index.php");
+        getP().index("index.php");
         mTextView.setText(JniHelper.getInstance().stringFromJNI());
     }
 
@@ -49,6 +49,11 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
 
     }
 
+
+    @Override
+    public void showLoading() {
+        toast("加载数据中.....");
+    }
 
     @Override
     public void loginSuccess(MainIndexBean loginBean) {

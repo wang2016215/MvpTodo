@@ -18,7 +18,7 @@ public class MainPresenter extends OtherPresenter<MainModel,MainActivity> implem
 
     @Override
     public void index(String url) {
-
+        getIView().showLoading();
        loadModel().loadIndex(url, new MainModel.DataListener<MainIndexBean>() {
             @Override
             public void successInfo(MainIndexBean result) {
@@ -32,6 +32,8 @@ public class MainPresenter extends OtherPresenter<MainModel,MainActivity> implem
         });
 
     }
+
+
 
 //    @Override
 //    public HashMap<String, IModel> getiModelMap() {
