@@ -56,6 +56,12 @@ MVP中，由于业务逻辑都在Presenter里，我们完全可以写一个Prese
 - presenter: mainPresenter
 - utils 工具类
 
+# 更新日志
+
+2018年1月8日
+1.白屏启动优化
+2.启动时间优化
+
 
 
 
