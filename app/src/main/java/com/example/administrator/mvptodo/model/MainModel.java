@@ -3,7 +3,6 @@ package com.example.administrator.mvptodo.model;
 import com.example.administrator.mvptodo.BaseApplication;
 import com.example.administrator.mvptodo.base.BaseModel;
 import com.example.administrator.mvptodo.bean.MainIndexBean;
-import com.example.administrator.mvptodo.http.HttpHolder;
 import com.example.administrator.mvptodo.http.rx.CommonObserver;
 import com.example.bin.exception.ApiException;
 import com.example.bin.rx.RxSchedulers;
@@ -25,8 +24,7 @@ public class MainModel extends BaseModel{
         }
 
         final WeakHashMap<String, Object> params = new WeakHashMap<>();
-
-        HttpHolder.getRxRestService().get(url,params)
+        sRxRestService.get(url,params)
                 .compose(RxSchedulers.<String>compose())
                 .subscribe(new CommonObserver<String>(BaseApplication.getContext()) {
                     @Override

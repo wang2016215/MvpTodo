@@ -1,7 +1,9 @@
 package com.example.administrator.mvptodo.base;
 
 
+import com.example.administrator.mvptodo.http.HttpHolder;
 import com.example.administrator.mvptodo.mvp.IModel;
+import com.example.bin.rx.RxRestService;
 
 /**
  * Model基类
@@ -10,10 +12,9 @@ import com.example.administrator.mvptodo.mvp.IModel;
  * @since 1.0
  */
 public class BaseModel implements IModel {
-   // protected static HttpService httpService;
-//    // 初始化HttpService
-//    static {
-//        httpService = Http.getHttpService();
-//    }
 
+    static {
+       sRxRestService = HttpHolder.getRxRestService();
+   }
+    protected static RxRestService sRxRestService;
 }
