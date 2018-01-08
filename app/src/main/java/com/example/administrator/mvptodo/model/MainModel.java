@@ -3,9 +3,9 @@ package com.example.administrator.mvptodo.model;
 import com.example.administrator.mvptodo.BaseApplication;
 import com.example.administrator.mvptodo.base.BaseModel;
 import com.example.administrator.mvptodo.bean.MainIndexBean;
+import com.example.administrator.mvptodo.http.HttpHolder;
+import com.example.administrator.mvptodo.http.rx.CommonObserver;
 import com.example.bin.exception.ApiException;
-import com.example.bin.observer.CommonObserver;
-import com.example.bin.retrofit.RestCreator;
 import com.example.bin.rx.RxSchedulers;
 import com.google.gson.Gson;
 
@@ -26,22 +26,20 @@ public class MainModel extends BaseModel{
 
         final WeakHashMap<String, Object> params = new WeakHashMap<>();
 
-        RestCreator.getRxRestService().get(url,params)
+        HttpHolder.getRxRestService().get(url,params)
                 .compose(RxSchedulers.<String>compose())
                 .subscribe(new CommonObserver<String>(BaseApplication.getContext()) {
                     @Override
-                    public void onNext(String s) {
+                    protected void onError(ApiException e) {
+                       listener.failInfo(e.toString());
+                    }
 
+                    @Override
+                    public void onNext(String s) {
                         MainIndexBean bean = new Gson().fromJson(s,MainIndexBean.class);
 
                         listener.successInfo(bean);
                         isLogin = true;
-                    }
-
-                    @Override
-                    protected void onError(ApiException e) {
-                      listener.failInfo(e.message);
-
                     }
                 });
 

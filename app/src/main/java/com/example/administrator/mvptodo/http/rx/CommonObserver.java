@@ -1,10 +1,12 @@
-package com.example.bin.observer;
+package com.example.administrator.mvptodo.http.rx;
 
 import android.content.Context;
 
-import com.blankj.utilcode.util.NetworkUtils;
-import com.blankj.utilcode.util.ToastUtils;
+import com.example.administrator.mvptodo.BaseApplication;
+import com.example.administrator.mvptodo.utils.NetworkUtil;
+import com.example.administrator.mvptodo.utils.ToastUtils;
 import com.example.bin.R;
+import com.example.bin.observer.BaseObserver;
 
 import io.reactivex.disposables.Disposable;
 
@@ -28,7 +30,7 @@ public abstract class CommonObserver<T> extends BaseObserver<T> {
     @Override
     public void onSubscribe(@io.reactivex.annotations.NonNull Disposable d) {
         disposable = d;
-        if (!NetworkUtils.isConnected()) {
+        if (!NetworkUtil.isNetworkAvailable(BaseApplication.getContext())) {
            // LogUtils.e(TAG, "网络不可用");
             ToastUtils.showShort(R.string.toast_network_error);
         } else {

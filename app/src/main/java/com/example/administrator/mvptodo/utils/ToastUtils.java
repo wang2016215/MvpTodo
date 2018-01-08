@@ -18,7 +18,7 @@ public class ToastUtils {
         throw new UnsupportedOperationException("cannot be instantiated");
     }
 
-    public static void showShort(CharSequence message) {
+    public static void showShort(int message) {
         if (toast == null) {
             toast = Toast.makeText(BaseApplication.getContext(), message, Toast.LENGTH_SHORT);
         } else {

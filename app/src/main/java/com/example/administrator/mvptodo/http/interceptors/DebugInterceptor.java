@@ -1,4 +1,4 @@
-package com.example.bin.interceptors;
+package com.example.administrator.mvptodo.http.interceptors;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.RawRes;

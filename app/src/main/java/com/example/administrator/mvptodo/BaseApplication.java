@@ -3,9 +3,6 @@ package com.example.administrator.mvptodo;
 import android.app.Application;
 import android.content.Context;
 
-import com.example.bin.app.Bing;
-import com.example.bin.interceptors.LoggerInterceptor;
-
 /**
  * @autour: wanbin
  * date: 2018/1/4 0004 14:50
@@ -19,13 +16,15 @@ public class BaseApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+
+//        File file = new File(Environment.getExternalStorageDirectory(),"app3");
+//        LogUtils.d("wangbin",file.getAbsolutePath());
+//        Debug.startMethodTracing(file.getAbsolutePath());
         mContext = this;
 
-        Bing.init(this)
-                .withApiHost("http://114.67.145.163/RestServer/api/")
-                .withInterceptor(new LoggerInterceptor())
-                .withLoaderDelayed(1000)
-                .configure();
+
+
+//        Debug.stopMethodTracing();
     }
 
     /**

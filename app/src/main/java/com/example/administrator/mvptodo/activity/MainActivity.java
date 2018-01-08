@@ -40,6 +40,11 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
 
     @Override
     protected void initData() {
+//                Bing.init(this)
+//                .withApiHost("http://114.67.145.163/RestServer/api/")
+//                .withInterceptor(new LoggerInterceptor())
+//                .withLoaderDelayed(1000)
+//                .configure();
         getP().index("index.php");
         mTextView.setText(JniHelper.getInstance().stringFromJNI());
     }
