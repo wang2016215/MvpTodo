@@ -238,7 +238,7 @@ public class BannerLayout extends RelativeLayout {
         setViews(views);
     }
 
-    private boolean isIndicator = false; //指示器开关
+    private boolean isIndicator = true; //指示器开关
     private void setViews(final List<View> views) {
 
         mViewPager = new ViewPager(getContext());
