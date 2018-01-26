@@ -1,1 +1,1 @@
-include ':app', 'bin'
+include ':app', ':common', 'bin'
