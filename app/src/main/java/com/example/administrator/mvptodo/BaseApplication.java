@@ -17,6 +17,13 @@ public class BaseApplication extends Application {
     public void onCreate() {
         super.onCreate();
 
+        /**
+         * 检测app启动耗时的方法   Debug.startMethodTracing(file.getAbsolutePath());
+         *   Debug.stopMethodTracing(); 成对出现
+         *
+         *  从启动时间的角度 application 不建议初始化太多的东西
+         *   初始化okhttp 等东西会导致app启动时间增长
+         */
 //        File file = new File(Environment.getExternalStorageDirectory(),"app3");
 //        LogUtils.d("wangbin",file.getAbsolutePath());
 //        Debug.startMethodTracing(file.getAbsolutePath());
