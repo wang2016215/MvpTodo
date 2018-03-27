@@ -18,14 +18,12 @@ import io.reactivex.disposables.Disposable;
  */
 public abstract class CommonObserver<T> extends BaseObserver<T> {
     private static final String TAG = "CommonObserver";
-    private Context context;
+
     // Disposable 相当于RxJava1.x中的 Subscription，用于解除订阅 disposable.dispose();
 
     protected Disposable disposable;
 
-    public CommonObserver(Context context) {
-        this.context = context;
-    }
+
 
     @Override
     public void onSubscribe(@io.reactivex.annotations.NonNull Disposable d) {

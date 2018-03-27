@@ -23,6 +23,7 @@ public class MainPresenter extends OtherPresenter<MainModel,MainActivity> implem
             @Override
             public void successInfo(MainIndexBean result) {
                 getIView().loginSuccess(result);
+
             }
 
             @Override

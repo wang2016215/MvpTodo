@@ -26,10 +26,11 @@ public class MainModel extends BaseModel{
         final WeakHashMap<String, Object> params = new WeakHashMap<>();
         sRxRestService.get(url,params)
                 .compose(RxSchedulers.<String>compose())
-                .subscribe(new CommonObserver<String>(BaseApplication.getContext()) {
+                .subscribe(new CommonObserver<String>() {
                     @Override
                     protected void onError(ApiException e) {
                        listener.failInfo(e.toString());
+
                     }
 
                     @Override

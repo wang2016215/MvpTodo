@@ -3,9 +3,13 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/MvpTodo.iml" filepath="$PROJECT_DIR$/MvpTodo.iml" />
+      <module fileurl="file://F:\demo\MvpTodo\MvpTodo.iml" filepath="F:\demo\MvpTodo\MvpTodo.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://F:\demo\MvpTodo\app\app.iml" filepath="F:\demo\MvpTodo\app\app.iml" />
       <module fileurl="file://$PROJECT_DIR$/bin/bin.iml" filepath="$PROJECT_DIR$/bin/bin.iml" />
+      <module fileurl="file://F:\demo\MvpTodo\bin\bin.iml" filepath="F:\demo\MvpTodo\bin\bin.iml" />
       <module fileurl="file://$PROJECT_DIR$/common/common.iml" filepath="$PROJECT_DIR$/common/common.iml" />
+      <module fileurl="file://F:\demo\MvpTodo\common\common.iml" filepath="F:\demo\MvpTodo\common\common.iml" />
     </modules>
   </component>
 </project>
